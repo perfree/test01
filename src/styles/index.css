@@ -1,0 +1,164 @@
+:root {
+  --bg-deep: #060b18;
+  --bg-panel: #0c1428;
+  --bg-card: rgba(16, 26, 48, 0.85);
+  --border-glow: rgba(0, 229, 255, 0.18);
+  --accent: #00e5ff;
+  --accent-2: #7c3aed;
+  --text-main: #dbe7ff;
+  --text-dim: #7c8db5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#app {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--bg-deep);
+  color: var(--text-main);
+  font-family: 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Element Plus 暗色微调 */
+html.dark {
+  --el-bg-color: #101a30;
+  --el-bg-color-overlay: #14203c;
+  --el-fill-color-blank: #0c1428;
+  --el-border-color: rgba(0, 229, 255, 0.15);
+  --el-border-color-light: rgba(0, 229, 255, 0.12);
+  --el-border-color-lighter: rgba(0, 229, 255, 0.08);
+  --el-text-color-primary: #dbe7ff;
+  --el-text-color-regular: #a9bce0;
+  --el-color-primary: #00b8d4;
+}
+
+/* 通用科技风卡片 */
+.tech-card {
+  position: relative;
+  background: var(--bg-card);
+  border: 1px solid var(--border-glow);
+  border-radius: 8px;
+  padding: 14px 16px;
+  backdrop-filter: blur(4px);
+}
+
+.tech-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 18px;
+  height: 18px;
+  border-top: 2px solid var(--accent);
+  border-left: 2px solid var(--accent);
+  border-top-left-radius: 8px;
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.tech-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 18px;
+  height: 18px;
+  border-bottom: 2px solid var(--accent);
+  border-right: 2px solid var(--accent);
+  border-bottom-right-radius: 8px;
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.tech-card-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 12px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #eaf4ff;
+  letter-spacing: 1px;
+}
+
+.tech-card-title::before {
+  content: '';
+  width: 4px;
+  height: 16px;
+  background: linear-gradient(180deg, var(--accent), transparent);
+  border-radius: 2px;
+}
+
+.page-container {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-height: 100%;
+}
+
+/* 筛选工具栏 */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+.filter-bar .spacer {
+  flex: 1;
+}
+
+/* 表格分页 */
+.pager-row {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 14px;
+}
+
+/* 滚动条 */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 229, 255, 0.2);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* 数字字体效果 */
+.num-glow {
+  font-family: 'DIN Alternate', 'Bahnschrift', 'Arial Narrow', sans-serif;
+  font-weight: 700;
+  background: linear-gradient(180deg, #fff, #6ee7ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* 响应式工具 */
+@media (max-width: 768px) {
+  .page-container {
+    padding: 10px;
+    gap: 10px;
+  }
+
+  .hide-sm {
+    display: none !important;
+  }
+}
